@@ -1,11 +1,27 @@
-import "./App.css";
+import React, { useState } from "react";
+import { Container } from "react-bootstrap";
+import Header from "./components/Header/Header";
+import Sidebar from "./components/Sidebar/Sidebar";
+import HomeScreen from "./screens/HomeScreen/HomeScreen";
 
-function App() {
+import "./_app.scss";
+
+const App = () => {
+  const [sidebar, toggleSidebar] = useState(false);
+
+  const handleToggleSidebar = () => toggleSidebar((value) => !value);
+
   return (
-    <div className="App">
-      <h1>Start from here.</h1>
-    </div>
+    <React.Fragment>
+      <Header handleToggleSidebar={handleToggleSidebar} />
+      <div className="app__container">
+        <Sidebar sidebar={sidebar} handleToggleSidebar={handleToggleSidebar} />
+        <Container fluid className="app__main">
+          <HomeScreen />
+        </Container>
+      </div>
+    </React.Fragment>
   );
-}
+};
 
 export default App;
