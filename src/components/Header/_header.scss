@@ -24,6 +24,9 @@
     height: 100px;
     object-fit: contain;
     display: block;
+    align-items: center;
+    display: flex;
+    justify-content: center;
   }
 
   form {

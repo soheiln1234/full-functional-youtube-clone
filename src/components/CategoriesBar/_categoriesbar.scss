@@ -5,6 +5,7 @@
   font-size: 0.8rem;
   display: flex;
   overflow-x: scroll;
+  margin-top: 1rem;
 
   &::-webkit-scrollbar {
     width: 0;
@@ -19,7 +20,6 @@
     white-space: nowrap;
     border: 1.5px solid $text-color;
     border-radius: 9999px;
-
     cursor: pointer;
 
     &:hover {

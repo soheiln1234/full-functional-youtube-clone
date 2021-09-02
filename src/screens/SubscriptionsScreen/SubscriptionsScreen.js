@@ -5,9 +5,9 @@ import { getSubscribedChannels } from "../../redux/actions/videos.action";
 import VideoHorizontal from "../../components/VideoHorizontal/VideoHorizontal";
 
 import "./_subscriptions.scss";
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import SkeletonHorizontalVideo from "../../components/skeletons/SkeletonHorizontalVideo";
 
-const SunscriptionsScreen = () => {
+const SubscriptionsScreen = () => {
   const dispatch = useDispatch();
   const { loading, videos } = useSelector(
     (state) => state.subscriptionsChannel
@@ -19,17 +19,13 @@ const SunscriptionsScreen = () => {
 
   return (
     <Container fluid>
-      {!loading ? (
-        videos?.map((video) => (
-          <VideoHorizontal key={video.id} video={video} subScreen />
-        ))
-      ) : (
-        <SkeletonTheme color="#343a40" highlightColor="#3c4147">
-          <Skeleton width="100%" height="160px" count={15} />
-        </SkeletonTheme>
-      )}
+      {loading
+        ? videos?.map((video) => (
+            <VideoHorizontal key={video.id} video={video} subScreen />
+          ))
+        : [...Array(4)].map(() => <SkeletonHorizontalVideo />)}
     </Container>
   );
 };
 
-export default SunscriptionsScreen;
+export default SubscriptionsScreen;

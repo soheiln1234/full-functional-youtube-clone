@@ -15,6 +15,7 @@ import {
 } from "../../redux/actions/videos.action";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import HelmetCutome from "../../components/Helmet/HelmetCutome";
+import SkeletonHorizontalVideo from "../../components/skeletons/SkeletonHorizontalVideo";
 
 const WatchScreen = () => {
   const { id } = useParams();
@@ -56,17 +57,13 @@ const WatchScreen = () => {
         />
       </Col>
       <Col lg={4}>
-        {!loading ? (
-          videos
-            ?.filter((video) => video.snippet)
-            .map((video) => (
-              <VideoHorizontal key={video.id.videoId} video={video} />
-            ))
-        ) : (
-          <SkeletonTheme color="#343a40" highlightColor="#3c4147">
-            <Skeleton width="100%" height="100px" count={15} />
-          </SkeletonTheme>
-        )}
+        {!loading
+          ? videos
+              ?.filter((video) => video.snippet)
+              .map((video) => (
+                <VideoHorizontal key={video.id.videoId} video={video} />
+              ))
+          : [...Array(4)].map(() => <SkeletonHorizontalVideo />)}
       </Col>
     </Row>
   );

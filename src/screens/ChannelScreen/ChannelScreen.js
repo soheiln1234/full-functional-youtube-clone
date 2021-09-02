@@ -2,7 +2,6 @@ import numeral from "numeral";
 import React from "react";
 import { useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -10,6 +9,7 @@ import Video from "../../components/VideoCard/Video";
 import { getChannelDetails } from "../../redux/actions/channel.action";
 import { getVideosByChannel } from "../../redux/actions/videos.action";
 import "./_channelScreen.scss";
+import SkeletonHorizontalVideo from "../../components/skeletons/SkeletonHorizontalVideo";
 
 const ChannelScreen = () => {
   const { channelId } = useParams();
@@ -21,9 +21,9 @@ const ChannelScreen = () => {
     dispatch(getChannelDetails(channelId));
   }, [dispatch, channelId]);
 
-  const { videos, loading } = useSelector((state) => state.channelVideos);
+  const { videos, loading } = useSelector((state) => state?.channelVideos);
   const { snippet, statistics } = useSelector(
-    (state) => state.channelDetails.channel
+    (state) => state?.channelDetails.channel
   );
 
   return (
@@ -53,9 +53,7 @@ const ChannelScreen = () => {
               ))
             : [...Array(15)].map(() => (
                 <Col md={3} lg={3}>
-                  <SkeletonTheme color="#343a40" highlightColor="#3c4147">
-                    <Skeleton width="100%" height="140px" />
-                  </SkeletonTheme>
+                  <SkeletonHorizontalVideo />
                 </Col>
               ))}
         </Row>

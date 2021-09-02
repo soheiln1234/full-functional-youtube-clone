@@ -8,7 +8,7 @@ import HomeScreen from "./screens/HomeScreen/HomeScreen";
 import LoginScreen from "./screens/LoginScreen/LoginScreen";
 import WatchScreen from "./screens/WatchScreen/WatchScreen";
 import SearchScreen from "./screens/SearchScreen/SearchScreen";
-import SubscriptionsScreen from "./screens/SubscriptionsScreen/SunscriptionsScreen";
+import SubscriptionsScreen from "./screens/SubscriptionsScreen/SubscriptionsScreen";
 
 import "./_app.scss";
 import { Redirect } from "react-router-dom";
