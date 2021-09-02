@@ -2,6 +2,7 @@ import { Col, Row } from "react-bootstrap";
 import VideoHorizontal from "../../components/VideoHorizontal/VideoHorizontal";
 import VideoMetaData from "../../components/VideoMetaData/VideoMetaData";
 import Comments from "../../components/Comments/Comments";
+import Helmet from "react-helmet";
 
 import "./_watchscreen.scss";
 import { useParams } from "react-router-dom";
@@ -31,6 +32,9 @@ const WatchScreen = () => {
 
   return (
     <Row>
+      <Helmet>
+        <title>{video?.snippet?.title}</title>
+      </Helmet>
       <Col lg={8}>
         <div className="watchScreen__player">
           <iframe

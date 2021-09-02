@@ -25,10 +25,12 @@ const Sidebar = ({ sidebar, handleToggleSidebar }) => {
       onClick={() => handleToggleSidebar(false)}
       className={sidebar ? "sidebar open" : "sidebar"}
     >
-      <li>
-        <MdHome color="#fff" size={23} />
-        <span>Home</span>
-      </li>
+      <Link to="/">
+        <li>
+          <MdHome color="#fff" size={23} />
+          <span>Home</span>
+        </li>
+      </Link>
       <Link to="/feed/subscriptions">
         <li>
           <MdSubscriptions color="#fff" size={23} />
@@ -46,10 +48,6 @@ const Sidebar = ({ sidebar, handleToggleSidebar }) => {
       <li>
         <MdLibraryBooks color="#fff" size={23} />
         <span>Libary</span>
-      </li>
-      <li>
-        <MdSentimentDissatisfied color="#fff" size={23} />
-        <span>I don't Know</span>
       </li>
       <hr />
       <li onClick={logOutHandler}>
