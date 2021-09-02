@@ -12,12 +12,16 @@
   &__top {
     margin-bottom: 0.5rem;
     position: relative;
+
+    .lazy-load-image-background {
+      width: 100%;
+    }
     img {
       width: 100%;
       object-fit: fill;
     }
 
-    span {
+    &__duration {
       position: absolute;
 
       bottom: 0.3rem;
@@ -44,12 +48,14 @@
     display: flex;
     align-items: center;
     margin: 0.5rem 0;
+    justify-self: flex-start;
 
     img {
       width: 36px;
       height: 36px;
       border-radius: 99px;
       cursor: pointer;
+      margin-right: 0.6rem;
     }
 
     p {

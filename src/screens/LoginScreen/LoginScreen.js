@@ -1,13 +1,25 @@
-import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { login } from "../../redux/actions/auth.action";
 import "./_loginscreen.scss";
 
 const LoginScreen = () => {
   const dispatch = useDispatch();
 
+  const accessToken = useSelector((state) => state.auth.accessToken);
+
   const handleLogin = () => {
     dispatch(login());
   };
+
+  const history = useHistory();
+
+  useEffect(() => {
+    if (accessToken) {
+      history.push("/");
+    }
+  }, [accessToken, history]);
 
   return (
     <div className="login">

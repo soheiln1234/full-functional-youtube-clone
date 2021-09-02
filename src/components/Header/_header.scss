@@ -6,9 +6,14 @@
   align-items: center;
   padding: 1rem 3rem;
 
-  background-color: $black-primary;
+  background-color: #202020;
   height: 10vh;
   width: 100%;
+
+  z-index: 999;
+
+  position: fixed;
+  top: 0;
 
   &__menu {
     display: none;
@@ -27,7 +32,8 @@
     padding: 0.1rem;
     margin: 0.1rem;
     border-radius: 3px;
-    background-color: $black-secondary;
+    background-color: #121212;
+    border: 0.5px solid rgba(204, 204, 204, 0.2);
 
     input {
       width: 100%;
@@ -40,15 +46,14 @@
       &:focus {
         outline: none;
       }
-
-      button {
-        padding: 0 1.25rem;
-        color: $text-color;
-        background: transparent;
+    }
+    button {
+      padding: 0 1.25rem;
+      color: $text-color;
+      background: #313131;
+      border: none;
+      &:focus {
         border: none;
-        &:focus {
-          border: none;
-        }
       }
     }
   }
