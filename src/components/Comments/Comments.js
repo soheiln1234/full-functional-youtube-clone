@@ -33,13 +33,17 @@ const Comments = ({ videoId, totalComments }) => {
     (comment) => comment.snippet.topLevelComment.snippet
   );
 
-  const { photoURL } = useSelector((state) => state.auth?.user);
+  const user = useSelector((state) => state.auth?.user);
 
   return (
     <div className="comments">
       <p>{numeral(totalComments).format("0.a")} Comments</p>
       <div className="comments__form d-flex w-100 my-2">
-        <img src={photoURL} alt="profile" className="rounded-circle mr-3" />
+        <img
+          src={user?.photoURL}
+          alt="profile"
+          className="rounded-circle mr-3"
+        />
         <form onSubmit={handleComment} className="d-flex flex-grow-1">
           <input
             type="text"

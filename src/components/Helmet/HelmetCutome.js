@@ -1,6 +1,9 @@
 import { Helmet } from "react-helmet";
 
-function HelmetCutome(title = "YouTube", description = "YouTube Clone") {
+const HelmetCustom = ({
+  title = "Youtube using Youtube",
+  description = "a project made with youtube api adn react js",
+}) => {
   return (
     <Helmet>
       <title>{title}</title>
@@ -11,6 +14,6 @@ function HelmetCutome(title = "YouTube", description = "YouTube Clone") {
       <meta property="og:description" content={description} />
     </Helmet>
   );
-}
+};
 
-export default HelmetCutome;
+export default HelmetCustom;
