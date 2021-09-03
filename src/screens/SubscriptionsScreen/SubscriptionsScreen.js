@@ -19,7 +19,7 @@ const SubscriptionsScreen = () => {
 
   return (
     <Container fluid>
-      {loading
+      {!loading
         ? videos?.map((video) => (
             <VideoHorizontal key={video.id} video={video} subScreen />
           ))
